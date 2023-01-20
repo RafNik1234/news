@@ -3,6 +3,9 @@ import { createTheme } from "@mui/material/styles";
 
 export const themeProvider = (modeVersion: boolean) =>
   createTheme({
+    typography: {
+      fontFamily: "Source Sans Pro, sans-serif",
+    },
     palette: {
       // mode: modeVersion ? "light" : "dark",
       ...(modeVersion
@@ -21,7 +24,7 @@ export const themeProvider = (modeVersion: boolean) =>
           }
         : {
             // palette values for dark mode
-            primary:grey,
+            primary: grey,
             divider: grey[700],
             background: {
               default: grey[900],
