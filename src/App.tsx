@@ -6,19 +6,23 @@ import { Box } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import { themeProvider } from "./theme";
 import { useState } from "react";
+import { TabContext } from "./context/tabContext";
 
 function App() {
   const [mode, setMode] = useState(false);
+  const [searchingParam, setSearchingParam] = useState("");
 
   return (
     <ThemeProvider theme={themeProvider(mode)}>
-      <MainFlex>
-        <Navbar />
-        <Box width="100%">
-          <Header setMode={setMode} mode={mode} />
-          <Main />
-        </Box>
-      </MainFlex>
+      <TabContext.Provider value={{ searchingParam, setSearchingParam }}>
+        <MainFlex>
+          <Navbar />
+          <Box width="100%">
+            <Header setMode={setMode} mode={mode} />
+            <Main />
+          </Box>
+        </MainFlex>
+      </TabContext.Provider>
     </ThemeProvider>
   );
 }
