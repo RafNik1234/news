@@ -50,9 +50,30 @@ export const SelectorView = () => {
             <Typography fontSize={12}>{el.describtion}</Typography>
           </FlexCenter>
           <ButtonGroup variant="outlined" aria-label="outlined button group">
-            <SectorButton isActive={false}>Am</SectorButton>
-            <SectorButton isActive={false}>Eu</SectorButton>
-            <SectorButton isActive={false}>As</SectorButton>
+            <SectorButton
+              sx={{
+                bgcolor: isActive.am ? "rgb(55, 90, 127)" : "",
+                color: isActive.am ? "white" : "",
+              }}
+            >
+              Am
+            </SectorButton>
+            <SectorButton
+              sx={{
+                bgcolor: isActive.eu ? "rgb(55, 90, 127)" : "",
+                color: isActive.eu ? "white" : "",
+              }}
+            >
+              Eu
+            </SectorButton>
+            <SectorButton
+              sx={{
+                bgcolor: isActive.as ? "rgb(55, 90, 127)" : "",
+                color: isActive.as ? "white" : "",
+              }}
+            >
+              As
+            </SectorButton>
           </ButtonGroup>
         </FlexSpaces>
       ))}

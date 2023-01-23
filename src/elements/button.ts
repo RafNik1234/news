@@ -11,17 +11,16 @@ export const TypesButton = styled(Button)(() => {
     fontSize: "12px !important",
     padding: "0px !important",
     minWidth: "40px !important",
+    "&:hover": {
+      color: "white",
+    },
   };
 });
 
-export const SectorButton = styled(Button)(
-  ({ isActive }: { isActive: boolean }) => ({
-    fontSize: "11px",
-    padding: "0px",
-    minWidth: "30px !important",
-    width: "30px !important",
-    height: "23px",
-    background: isActive ? "#fff" : "",
-    color: isActive ? "#fff" : "",
-  })
-);
+export const SectorButton = styled(Button)(() => ({
+  fontSize: "11px",
+  padding: "0px",
+  minWidth: "30px !important",
+  width: "30px !important",
+  height: "23px",
+}));
