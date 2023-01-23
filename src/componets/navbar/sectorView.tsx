@@ -44,7 +44,24 @@ export const SelectorView = () => {
     setCheckedItems(nestedObj);
     setCheckedCategoryItems(sectorCheckeds);
   }, []);
-  console.log("checkedCategoryItems", checkedCategoryItems);
+
+  useEffect(() => {
+    let count_am = 0;
+    let count_eu = 0;
+    let count_as = 0;
+    for (const key in checkedCategoryItems) {
+      if (key.includes("_am") && checkedCategoryItems[key]) {
+        count_am += 1;
+      }
+      if (key.includes("_eu") && checkedCategoryItems[key]) {
+        count_eu += 1;
+      }
+      if (key.includes("_as") && checkedCategoryItems[key]) {
+        count_as += 1;
+      }
+    }
+  }, [checkedCategoryItems]);
+
   return (
     <Box>
       <NavHeadBox>
