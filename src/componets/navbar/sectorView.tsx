@@ -18,6 +18,9 @@ export const SelectorView = () => {
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>(
     {}
   );
+  const [checkedCategoryItems, setCheckedCategoryItems] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   useEffect(() => {
     const elems = sectorItems.map((el) => {
@@ -31,13 +34,17 @@ export const SelectorView = () => {
     });
     setSectorElements(elems);
     const nestedObj: { [key: string]: boolean } = {};
+    const sectorCheckeds: { [key: string]: boolean } = {};
     sectorItems.forEach((el) => {
       nestedObj[el.title] = false;
+      sectorCheckeds[`${el.title}_am`] = false;
+      sectorCheckeds[`${el.title}_eu`] = false;
+      sectorCheckeds[`${el.title}_as`] = false;
     });
     setCheckedItems(nestedObj);
+    setCheckedCategoryItems(sectorCheckeds);
   }, []);
-
-  console.log("checkedItems", checkedItems);
+  console.log("checkedCategoryItems", checkedCategoryItems);
   return (
     <Box>
       <NavHeadBox>
@@ -78,6 +85,7 @@ export const SelectorView = () => {
       {sectorElements.map((el) => (
         <FlexSpaces
           key={el.title}
+          sx={{ "&:hover": { background: "#666" } }}
           onClick={() => {
             setCheckedItems({
               ...checkedItems,
@@ -92,25 +100,61 @@ export const SelectorView = () => {
           <ButtonGroup variant="outlined" aria-label="outlined button group">
             <SectorButton
               sx={{
-                bgcolor: isActive.am || el.am ? "rgb(55, 90, 127)" : "",
-                color: isActive.am || el.am ? "white" : "",
+                bgcolor:
+                  isActive.am || checkedCategoryItems[`${el.title}_am`]
+                    ? "rgb(55, 90, 127)"
+                    : "",
+                color:
+                  isActive.am || checkedCategoryItems[`${el.title}_am`]
+                    ? "white"
+                    : "",
               }}
+              onClick={() =>
+                setCheckedCategoryItems({
+                  ...checkedCategoryItems,
+                  [`${el.title}_am`]: !checkedCategoryItems[`${el.title}_am`],
+                })
+              }
             >
               Am
             </SectorButton>
             <SectorButton
               sx={{
-                bgcolor: isActive.eu || el.eu ? "rgb(55, 90, 127)" : "",
-                color: isActive.eu || el.eu ? "white" : "",
+                bgcolor:
+                  isActive.eu || checkedCategoryItems[`${el.title}_eu`]
+                    ? "rgb(55, 90, 127)"
+                    : "",
+                color:
+                  isActive.eu || checkedCategoryItems[`${el.title}_eu`]
+                    ? "white"
+                    : "",
               }}
+              onClick={() =>
+                setCheckedCategoryItems({
+                  ...checkedCategoryItems,
+                  [`${el.title}_eu`]: !checkedCategoryItems[`${el.title}_eu`],
+                })
+              }
             >
               Eu
             </SectorButton>
             <SectorButton
               sx={{
-                bgcolor: isActive.as || el.as ? "rgb(55, 90, 127)" : "",
-                color: isActive.as || el.as ? "white" : "",
+                bgcolor:
+                  isActive.as || checkedCategoryItems[`${el.title}_as`]
+                    ? "rgb(55, 90, 127)"
+                    : "",
+                color:
+                  isActive.as || checkedCategoryItems[`${el.title}_as`]
+                    ? "white"
+                    : "",
               }}
+              onClick={() =>
+                setCheckedCategoryItems({
+                  ...checkedCategoryItems,
+                  [`${el.title}_as`]: !checkedCategoryItems[`${el.title}_as`],
+                })
+              }
             >
               As
             </SectorButton>
