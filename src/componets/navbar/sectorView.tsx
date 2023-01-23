@@ -15,8 +15,8 @@ export const SelectorView = () => {
             size="small"
             onClick={() => setIsActive({ ...isActive, am: !isActive.am })}
             sx={{
-              bgcolor: isActive.as ? "rgb(55, 90, 127)" : "",
-              color: isActive.as ? "white" : "",
+              bgcolor: isActive.am ? "rgb(55, 90, 127)" : "",
+              color: isActive.am ? "white" : "",
             }}
           >
             Am
@@ -25,8 +25,8 @@ export const SelectorView = () => {
             size="small"
             onClick={() => setIsActive({ ...isActive, eu: !isActive.eu })}
             sx={{
-              bgcolor: isActive.as ? "rgb(55, 90, 127)" : "",
-              color: isActive.as ? "white" : "",
+              bgcolor: isActive.eu ? "rgb(55, 90, 127)" : "",
+              color: isActive.eu ? "white" : "",
             }}
           >
             Eu
