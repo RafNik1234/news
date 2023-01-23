@@ -1,8 +1,8 @@
 import { Button } from "@mui/material";
 import styled from "styled-components";
 
-export const TypesButton = styled(Button)(
-  ({ isActive }: { isActive: boolean }) => ({
+export const TypesButton = styled(Button)(() => {
+  return {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -11,10 +11,8 @@ export const TypesButton = styled(Button)(
     fontSize: "12px !important",
     padding: "0px !important",
     minWidth: "40px !important",
-    background: isActive ? "#fff" : "",
-    color: isActive ? "#fff" : "",
-  })
-);
+  };
+});
 
 export const SectorButton = styled(Button)(
   ({ isActive }: { isActive: boolean }) => ({

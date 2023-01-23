@@ -5,8 +5,7 @@ import { sectorItems } from "./constants";
 import { SectorButton, TypesButton } from "../../elements/button";
 
 export const SelectorView = () => {
-  const [isActive, setIsActive] = useState("");
-
+  const [isActive, setIsActive] = useState({ am: false, eu: false, as: false });
   return (
     <Box>
       <NavHeadBox>
@@ -14,22 +13,31 @@ export const SelectorView = () => {
         <FlexCenter>
           <TypesButton
             size="small"
-            isActive={isActive === "am"}
-            onClick={() => setIsActive("am")}
+            onClick={() => setIsActive({ ...isActive, am: !isActive.am })}
+            sx={{
+              bgcolor: isActive.as ? "rgb(55, 90, 127)" : "",
+              color: isActive.as ? "white" : "",
+            }}
           >
             Am
           </TypesButton>
           <TypesButton
             size="small"
-            isActive={isActive === "eu"}
-            onClick={() => setIsActive("eu")}
+            onClick={() => setIsActive({ ...isActive, eu: !isActive.eu })}
+            sx={{
+              bgcolor: isActive.as ? "rgb(55, 90, 127)" : "",
+              color: isActive.as ? "white" : "",
+            }}
           >
             Eu
           </TypesButton>
           <TypesButton
             size="small"
-            isActive={isActive === "as"}
-            onClick={() => setIsActive("as")}
+            onClick={() => setIsActive({ ...isActive, as: !isActive.as })}
+            sx={{
+              bgcolor: isActive.as ? "rgb(55, 90, 127)" : "",
+              color: isActive.as ? "white" : "",
+            }}
           >
             As
           </TypesButton>
