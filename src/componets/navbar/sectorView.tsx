@@ -45,22 +45,52 @@ export const SelectorView = () => {
     setCheckedCategoryItems(sectorCheckeds);
   }, []);
 
-  useEffect(() => {
-    let count_am = 0;
-    let count_eu = 0;
-    let count_as = 0;
-    for (const key in checkedCategoryItems) {
-      if (key.includes("_am") && checkedCategoryItems[key]) {
-        count_am += 1;
-      }
-      if (key.includes("_eu") && checkedCategoryItems[key]) {
-        count_eu += 1;
-      }
-      if (key.includes("_as") && checkedCategoryItems[key]) {
-        count_as += 1;
-      }
-    }
-  }, [checkedCategoryItems]);
+  // useEffect(() => {
+  //   // let count_am = 0;
+  //   // let count_eu = 0;
+  //   // let count_as = 0;
+  //   // for (const key in checkedCategoryItems) {
+  //   //   if (key.includes("_am") && checkedCategoryItems[key]) {
+  //   //     count_am += 1;
+  //   //   }
+  //   //   if (key.includes("_eu") && checkedCategoryItems[key]) {
+  //   //     count_eu += 1;
+  //   //   }
+  //   //   if (key.includes("_as") && checkedCategoryItems[key]) {
+  //   //     count_as += 1;
+  //   //   }
+  //   //   if (count_am !== Object.keys(checkedCategoryItems).length) {
+  //   //     setIsActive({ ...isActive, am: false });
+  //   //   }
+  //   //   if (count_eu !== Object.keys(checkedCategoryItems).length) {
+  //   //     setIsActive({ ...isActive, eu: false });
+  //   //   }
+  //   //   if (count_as !== Object.keys(checkedCategoryItems).length) {
+  //   //     setIsActive({ ...isActive, as: false });
+  //   //   }
+  //   // }
+  //   const sectorCheckeds: { [key: string]: boolean } = {};
+  //   sectorItems.forEach((el) => {
+  //     sectorCheckeds[`${el.title}_am`] = false;
+  //     sectorCheckeds[`${el.title}_eu`] = false;
+  //     sectorCheckeds[`${el.title}_as`] = false;
+  //   });
+  //   if (isActive.am) {
+  //     const sectorCheckeds: { [key: string]: boolean } = {};
+  //     sectorItems.forEach((el) => {
+  //       sectorCheckeds[`${el.title}_am`] = true;
+  //       // sectorCheckeds[`${el.title}_eu`] = false;
+  //       // sectorCheckeds[`${el.title}_as`] = false;
+  //     });
+  //     setCheckedCategoryItems({ ...checkedCategoryItems,...sectorCheckeds });
+  //   }
+  //   if (isActive.eu) {
+  //     setCheckedCategoryItems({ ...checkedCategoryItems });
+  //   }
+  //   if (isActive.as) {
+  //     setCheckedCategoryItems({ ...checkedCategoryItems });
+  //   }
+  // }, [isActive.am, isActive.eu, isActive.as]);
 
   return (
     <Box>

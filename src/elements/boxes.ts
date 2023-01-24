@@ -156,3 +156,42 @@ export const WarningBox = styled(Box)`
   padding: 5px;
   gap: 8px;
 `;
+
+export const FooterBox = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  height: 150px;
+  border: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  right: 2px;
+`;
+
+export const FlexTopAlign = styled(Box)`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const FooterFlexCenter = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "4px",
+  border: "1px solid #ccc",
+  cursor: "pointer",
+  padding: "8px 16px",
+  borderTopLeftRadius: "5px",
+  borderTopRightRadius: "5px",
+  fontWeight: "bold",
+}));
+
+export const CloseIconBox = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "30px",
+  height: "30px",
+  border: "1px solid gray",
+ }));

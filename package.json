@@ -19,6 +19,8 @@
     "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fit-to-viewport": "^0.1.1",
+    "react-resizable": "^3.0.4",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
@@ -50,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-resizable": "^3.0.3",
     "@types/styled-components": "^5.1.26"
   }
 }
